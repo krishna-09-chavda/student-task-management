@@ -1,24 +1,23 @@
-import { useState } from 'react'
+import { useState } from "react";
 
-import './App.css'
+import "./App.css";
 
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import Login from './pages/Login'
-import Register from './pages/register'
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Login from "./pages/Login";
+import Register from "./pages/register";
 
 function App() {
-  const  route = createBrowserRouter([
+  const route = createBrowserRouter([
     {
       path: "/login",
-      element: <Login />
+      element: <Login />,
     },
     {
       path: "/register",
-      element : <Register />
-    }
-   
-  ])
-  return <RouterProvider router={route} />
+      element: <Register />,
+    },
+  ]);
+  return <RouterProvider router={route} />;
 }
 
-export default App
+export default App;

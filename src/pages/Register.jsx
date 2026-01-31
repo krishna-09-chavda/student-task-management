@@ -1,5 +1,6 @@
 import React from "react";
 import "./Register.css";
+import {Link} from "react-router-dom";
 
 const Register = () => {
   return (
@@ -53,6 +54,9 @@ const Register = () => {
             Register
           </button>
         </form>
+        <p className="link-text">
+          Already have an Account? <Link to="/login">Login Here</Link>
+        </p>
       </div>
     </>
   );
