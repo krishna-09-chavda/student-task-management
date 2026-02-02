@@ -2,25 +2,27 @@ import { useState } from "react";
 
 import "./App.css";
 
-import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  Navigate,
+  RouterProvider,
+} from "react-router-dom";
 import Login from "./pages/Login";
 import Register from "./pages/register";
 
-
-const DefaultRoute = () =>{
-  const authData =JSON.parse(localStorage.getItem('authData'));
-  if(authData){
-
-    return <Navigate to ="/login" replace/>
+const DefaultRoute = () => {
+  const authData = JSON.parse(localStorage.getItem("authData"));
+  if (authData) {
+    return <Navigate to="/login" replace />;
   }
-  return <Navigate to="/register" replace/>
-}
+  return <Navigate to="/register" replace />;
+};
 
 function App() {
   const route = createBrowserRouter([
     {
-      path:"/",
-      element :<DefaultRoute/>
+      path: "/",
+      element: <DefaultRoute />,
     },
     {
       path: "/login",
@@ -29,7 +31,6 @@ function App() {
     {
       path: "/register",
       element: <Register />,
-
     },
   ]);
   return <RouterProvider router={route} />;

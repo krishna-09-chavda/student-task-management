@@ -12,7 +12,7 @@ const Register = () => {
   });
   const [errors, setErrors] = useState({});
 
-  const navigate= useNavigate()
+  const navigate = useNavigate();
 
   //logic
   const handleInputChange = (e) => {
@@ -24,8 +24,8 @@ const Register = () => {
 
     setErrors({
       ...errors,
-      [e.target.name]:""
-    })
+      [e.target.name]: "",
+    });
   };
 
   const validate = () => {
@@ -57,11 +57,10 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validate()) {
-      localStorage.setItem('authData',JSON.stringify(formData))
-      alert('Registration success')
-      navigate("/login")
+      localStorage.setItem("authData", JSON.stringify(formData));
+      alert("Registration success");
+      navigate("/login");
     }
-    
   };
 
   //useEffect(() => {
