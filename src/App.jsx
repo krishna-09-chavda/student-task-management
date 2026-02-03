@@ -9,13 +9,15 @@ import {
 } from "react-router-dom";
 import Login from "./pages/Login";
 import Register from "./pages/register";
+import Dashboard from "./pages/Dashboard";
+import AuthGuard from "./auth/AuthGuard";
 
 const DefaultRoute = () => {
-  const authData = JSON.parse(localStorage.getItem("authData"));
-  if (authData) {
-    return <Navigate to="/login" replace />;
+  const loginData = JSON.parse(localStorage.getItem("Data"));
+  if (loginData) {
+    return <Navigate to="/dashboard" replace />;
   }
-  return <Navigate to="/register" replace />;
+  return <Navigate to="/login" replace />;
 };
 
 function App() {
@@ -26,11 +28,28 @@ function App() {
     },
     {
       path: "/login",
-      element: <Login />,
+
+      element: (
+        <AuthGuard required={false}>
+          <Login />
+        </AuthGuard>
+      ),
     },
     {
       path: "/register",
-      element: <Register />,
+      element: (
+        <AuthGuard required={false}>
+          <Register />
+        </AuthGuard>
+      ),
+    },
+    {
+      path: "/dashboard",
+      element: (
+        <AuthGuard required={true}>
+          <Dashboard />
+        </AuthGuard>
+      ),
     },
   ]);
   return <RouterProvider router={route} />;
