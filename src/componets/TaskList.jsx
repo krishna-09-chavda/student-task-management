@@ -1,44 +1,43 @@
-function TaskList({tasks}) {
+function TaskList({ tasks }) {
   return (
     <div className="task-grid">
       {/*task card 1 */}
-      {tasks.map((task)=>
-      (
-      <div className="task-card" style={{ position: "relative" }}>
-        <h3>{task.title}</h3>
-        <p>{task.decription}</p>
+      {tasks.map((task) => (
+        <div className="task-card" style={{ position: "relative" }}>
+          <h3>{task.title}</h3>
+          <p>{task.decription}</p>
 
-        <div className="task-meta">
-          <span>Due : {task.dueDate}</span>
-          <span className="priority-badge priority-high">{task.priority}</span>
+          <div className="task-meta">
+            <span>Due : {task.dueDate}</span>
+            <span className="priority-badge priority-high">
+              {task.priority}
+            </span>
+          </div>
+          <div className="task-action">
+            <button
+              className="btn-icon"
+              style={{ background: "#00d2ff" }}
+              title="Edit Task"
+            >
+              ✏️
+            </button>
+            <button
+              className="btn-icon"
+              style={{ background: "#00b894" }}
+              title="Mark Complete"
+            >
+              ✔️
+            </button>
+            <button
+              className="btn-icon"
+              style={{ background: "#ff416c" }}
+              title="Delete Task"
+            >
+              🗑
+            </button>
+          </div>
         </div>
-        <div className="task-action">
-          <button
-            className="btn-icon"
-            style={{ background: "#00d2ff" }}
-            title="Edit Task"
-          >
-            ✏️
-          </button>
-          <button
-            className="btn-icon"
-            style={{ background: "#00b894" }}
-            title="Mark Complete"
-          >
-            ✔️
-          </button>
-          <button
-            className="btn-icon"
-            style={{ background: "#ff416c" }}
-            title="Delete Task"
-          >
-            🗑
-          </button>
-        </div>
-      </div>
-
       ))}
-      
     </div>
   );
 }
