@@ -6,7 +6,7 @@ import TaskList from "../componets/TaskList";
 const Dashboard = () => {
   const navigate = useNavigate();
 
-  const [data, setTasks] = useState([]);
+  const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
     fetchData();
@@ -15,7 +15,7 @@ const Dashboard = () => {
   const fetchData = async () => {
     try {
       const responce = await fetch("http://localhost:3000/task");
-      const data = Response.json();
+      const data =  await responce.json();
       setTasks(data);
     } catch (error) {
       console.log(error);
@@ -31,8 +31,8 @@ const Dashboard = () => {
   return (
     <div>
       <Navbar title="Task Manager" onLogout={handleLogout} />
-      <h1>My Task</h1>
-      <TaskList />
+      <h1>My Tasks</h1>
+      <TaskList  tasks={tasks}/>
     </div>
   );
 };
